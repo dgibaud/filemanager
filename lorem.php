@@ -7,14 +7,16 @@ $contents = explode('<br />'.PHP_EOL.'<br />'.PHP_EOL, $contents);
 debug($contents);
 
 foreach ($contents as $key => $content) {
-	// 1 : on ouvre le fichier
-	$monfichier = fopen("lorem/lorem$key.txt", 'c+');
 
-	if($monfichier){
-		// 2 : on fera ici nos opérations sur le fichier...
-		fputs($monfichier, $content);
+	file_put_contents("lorem/lorem$key.txt", $content);
+	// // 1 : on ouvre le fichier
+	// $monfichier = fopen("lorem/lorem$key.txt", 'c+');
 
-		// 3 : quand on a fini de l'utiliser, on ferme le fichier
-		fclose($monfichier);
-	}
+	// if ($monfichier){
+	// 	// 2 : on fera ici nos opérations sur le fichier...
+	// 	fputs($monfichier, $content);
+
+	// 	// 3 : quand on a fini de l'utiliser, on ferme le fichier
+	// 	fclose($monfichier);
+	// }
 }
